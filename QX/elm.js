@@ -39,7 +39,7 @@ if ($request && $request.headers) {
     if (cookie && !$.data['elmck']) {
         // 保存Cookie到本地
         $.setdata(cookie, 'elmck');
-        $notify('Quantumult X', 'elmCK获取成功', `${cookie}`);
+        $notify('elmCK获取成功', `${cookie}`);
         $done({});
         return; // 结束脚本，避免重复获取
     }
