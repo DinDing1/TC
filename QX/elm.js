@@ -1,8 +1,9 @@
 /*
 QX配置填写
+登录elm，打开我的-吃货豆，获取https://nt2.ele.me/c/b?请求中的Cookie
+⬇️⬇️⬇️配置如下⬇️⬇️⬇️
 [rewrite_local]
 # 获取 cookie
-登录elm，打开我的-吃货豆，获取https://nt2.ele.me/c/b?请求中的Cookie
 https://nt2.ele.me/c/b? url script-request-header https://raw.githubusercontent.com/DinDing1/TC/main/QX/elm.js
 
 [task_local]
@@ -39,7 +40,7 @@ if ($request && $request.headers) {
     if (cookie && !$.data['elmck']) {
         // 保存Cookie到本地
         $.setdata(cookie, 'elmck');
-        $notify('elmCK获取成功', `${cookie}`);
+        $notify('elmCK获取成功✅', `${cookie}`);
         $done({});
         return; // 结束脚本，避免重复获取
     }
