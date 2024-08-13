@@ -7,8 +7,26 @@ https://nt2.ele.me/c/b? url script-request-header https://raw.githubusercontent.
 [mitm]
 hostname = nt2.ele.me
 */
-const $ = new Env("饿了么Cookie");
+class Env {
+    constructor(name) {
+        this.name = name;
+        this.data = {};
+    }
 
+    setdata(val, key) {
+        this.data[key] = val;
+        console.log(`Set data: ${key} = ${val}`);
+    }
+
+    msg(title, subtitle, body) {
+        console.log(`${title}\n${subtitle}\n${body}`);
+    }
+
+    done() {
+        console.log('Done');
+    }
+}
+const $ = new Env("饿了么Cookie");
 if ($request && $request.headers) {
     const cookie = $request.headers['Cookie'];
     if (cookie && !$.data['elmck']) {
