@@ -1,8 +1,12 @@
 /*
+QX配置填写
 [rewrite_local]
 # 获取 cookie
 登录elm，打开我的-吃货豆，获取https://nt2.ele.me/c/b?请求中的Cookie
-https://nt2.ele.me/c/b? url script-request-header elm.js
+https://nt2.ele.me/c/b? url script-request-header https://raw.githubusercontent.com/DinDing1/TC/main/QX/elm.js
+
+[task_local]
+0 0 1 1 * https://raw.githubusercontent.com/DinDing1/TC/main/QX/elm.js, tag=饿了么Cookie, img-url=https://raw.githubusercontent.com/DinDing1/TC/main/elm.png, enabled=true
 
 [mitm]
 hostname = nt2.ele.me
