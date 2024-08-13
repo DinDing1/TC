@@ -12,16 +12,13 @@ class Env {
         this.name = name;
         this.data = {};
     }
-
     setdata(val, key) {
         this.data[key] = val;
         console.log(`Set data: ${key} = ${val}`);
     }
-
     msg(title, subtitle, body) {
         console.log(`${title}\n${subtitle}\n${body}`);
     }
-
     done() {
         console.log('Done');
     }
