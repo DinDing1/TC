@@ -8,7 +8,7 @@ QX配置填写
 https://nt2.ele.me/c/b? url script-request-header https://raw.githubusercontent.com/DinDing1/TC/main/QX/elm.js
 
 [task_local]
-0 0 1 1 * https://raw.githubusercontent.com/DinDing1/TC/main/QX/elm.js, tag=饿了么Cookie, img-url=https://raw.githubusercontent.com/DinDing1/TC/main/icon/elm.png, enabled=true
+0 0 1 1 * https://raw.githubusercontent.com/DinDing1/TC/main/QX/elm.js, tag=饿了么Cookie, img-url=https://raw.githubusercontent.com/DinDing1/TC/main/icon/ele.png, enabled=true
 
 [mitm]
 hostname = nt2.ele.me
